@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Food PhoneGap</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var foodList = document.getElementById('foodList');
+            var foodField = document.getElementById('foodName');
+
+            document.getElementById('foodForm').
+            addEventListener('submit', function (evt) {
+                evt.preventDefault();
+                var newFood = foodField.value;
+                var newFoodItem = document.createElement('li');
+                newFoodItem.innerHTML = newFood;
+                foodList.appendChild(newFoodItem);
+                foodField.value = '';
+                return false;
+            }, false);
+        });
+    </script>
+    <style>
+        body {
+            background: white;
+        }
+        div#main {
+            background: #ccc;
+            border: black 1px solid;
+            height: 82%;
+            padding: 10%;
+            width: 80%;
+            -webkit-border-radius: 8px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width"  initialscale="1.0"></meta>
+</head>
+<body>
+<div id="main">
+    <h1>List Some Food</h1>
+    <form id="foodForm">
+        <input type="text" id="foodName" placeholder="A name of a food" />
+        <button id="submitFood">Tell Us!</button><br>
+    </form>
+    <ul id='foodList'>
+    </ul>
+</div>
+</body>
+</html>
